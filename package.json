@@ -1,12 +1,59 @@
 {
   "name": "@cloudhub-ux/svgicons",
-  "version": "1.0.0",
-  "description": "",
-  "main": "./lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "licence": "UNLICENSED",
+  "version": "1.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudhubke/cloudhub-ux-svgicons.git"
   },
-  "keywords": [],
-  "author": "Bernard Gaitho <gaithoben@gmail.com> (http://github.com/gaithoben)",
-  "license": "MIT"
+  "keywords": [
+    "cloudhub"
+  ],
+  "author": "Bernard Gaitho <gaithoben@gmail.com> (http://github.com/cloudhubke)",
+  "bugs": {
+    "url": "https://github.com/cloudhubke/cloudhub-ux-svgicons/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "NODE_ENV=development npx babel src --config-file ./babel.config.json --copy-files --out-dir dist && cp package.json dist/package.json",
+    "prepublishOnly": "./publish.sh"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "ie 11",
+      "not dead",
+      "not op_svgiconsi all"
+    ],
+    "development": [
+      "ie 11",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.2.0",
+    "@babel/core": "7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-object-assign": "7.2.0",
+    "@babel/preset-env": "7.2.0",
+    "@babel/preset-flow": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "2.2.1",
+    "react-scripts": "4.0.0"
+  }
 }
