@@ -1,7 +1,7 @@
 {
   "name": "@cloudhub-ux/svgicons",
   "licence": "UNLICENSED",
-  "version": "1.1.0",
+  "version": "1.10.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/cloudhubke/cloudhub-ux-svgicons.git"
@@ -16,7 +16,9 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "NODE_ENV=development npx babel src --config-file ./babel.config.json --copy-files --out-dir dist && cp package.json dist/package.json",
+    "postbuild": "cp -R src/assets dist/assets",
+    "build": "tsc",
+    "babel-build": "NODE_ENV=development npx babel src --config-file ./babel.config.json --copy-files --out-dir dist && cp package.json dist/package.json",
     "prepublishOnly": "./publish.sh"
   },
   "eslintConfig": {
@@ -42,18 +44,9 @@
     "react-dom": ">=16.13.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.2.0",
-    "@babel/core": "7.2.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-object-assign": "7.2.0",
-    "@babel/preset-env": "7.2.0",
-    "@babel/preset-flow": "7.0.0",
-    "@babel/preset-react": "7.0.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "2.2.1",
-    "react-scripts": "4.0.0"
+    "@types/react": "17.0.1",
+    "typescript": "4.7.4",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7"
   }
 }
